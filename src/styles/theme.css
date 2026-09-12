@@ -1,0 +1,67 @@
+:root {
+  --ink: #0D0D0F;
+  --paper: #F7F7F2;
+  --cobalt: #2440FF;
+  --acid: #E8FF3D;
+  --coral: #FF4B3E;
+  --gray: #6B6B66;
+
+  --bg: #F7F7F2;
+  --fg: #0D0D0F;
+  --panel: #F7F7F2;
+  --muted: #6B6B66;
+
+  --badge-ink: #0D0D0F;
+  --badge-paper: #F7F7F2;
+
+  --hl-bg: var(--cobalt);
+  --hl-fg: var(--badge-paper);
+
+  /* the "Apple-smooth" easing curve — use this everywhere instead of ease/ease-in-out */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme="dark"] {
+  --bg: #0D0D0F;
+  --fg: #F7F7F2;
+  --panel: #0D0D0F;
+  --muted: #9A9A92;
+  --hl-bg: var(--acid);
+  --hl-fg: var(--badge-ink);
+}
+
+* {
+  transition-timing-function: var(--ease-smooth);
+}
+
+
+
+/* ============================================================
+   ARCADE TOKENS — scoped to .arcade-shell, not :root. Games are
+   intentionally always-dark, ignoring the site's light/dark toggle
+   (an arcade cabinet doesn't have a "light mode"). Additive only.
+   ============================================================ */
+.arcade-shell, .arcade-active {
+  --arcade-bg: #0A0A14;
+  --arcade-panel: #14101F;
+  --arcade-fg: #F5F3FF;
+  --arcade-muted: #9C93C4;
+  --arcade-magenta: #FF2E88;
+  --arcade-cyan: #33F0FF;
+  --arcade-gold: #FFC730;
+
+  --ludo-red: #FF3B5C;
+  --ludo-green: #35E27A;
+  --ludo-yellow: #FFE066;
+  --ludo-blue: #3DA9FC;
+
+  /* Re-point the shared semantic tokens -- every existing shared
+     class (.panel-card, .btn-mini, .field, .tool-chip...) reads
+     these, so they reskin automatically with zero rule changes. */
+  --bg: var(--arcade-bg);
+  --fg: var(--arcade-fg);
+  --panel: var(--arcade-panel);
+  --muted: var(--arcade-muted);
+  --hl-bg: var(--arcade-magenta);
+  --hl-fg: var(--arcade-bg);
+}
